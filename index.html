@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Desktop Calendar</title>
+<meta name="description" content="A lightweight Linux desktop calendar that lives in your tray and syncs your Google calendars — local-first, private." />
+<style>
+  :root { --indigo:#6366f1; --bg:#0b0b0f; --fg:#e6e6ea; --muted:#9b9ba6; --card:#15151c; --border:#26262f; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--fg); line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:720px; margin:0 auto; padding:64px 24px 96px; }
+  header { display:flex; align-items:center; gap:16px; margin-bottom:8px; }
+  .logo { width:56px; height:56px; border-radius:14px; flex:0 0 auto; }
+  h1 { font-size:2rem; margin:0; letter-spacing:-0.02em; }
+  .tagline { color:var(--muted); font-size:1.05rem; margin:4px 0 40px; }
+  h2 { font-size:1.15rem; margin:40px 0 12px; letter-spacing:-0.01em; }
+  ul { padding-left:1.1rem; }
+  li { margin:6px 0; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px 24px; }
+  a { color:var(--indigo); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .pill { display:inline-block; font-size:.8rem; color:var(--indigo); background:rgba(99,102,241,.12);
+    border:1px solid rgba(99,102,241,.3); border-radius:999px; padding:3px 10px; margin-bottom:24px; }
+  footer { margin-top:56px; padding-top:24px; border-top:1px solid var(--border); color:var(--muted); font-size:.9rem; }
+  footer a { color:var(--muted); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="pill">Personal project · Linux</span>
+    <header>
+      <img class="logo" src="icon.png" alt="Desktop Calendar icon" />
+      <h1>Desktop Calendar</h1>
+    </header>
+    <p class="tagline">A lightweight desktop calendar that lives in your system tray and syncs your Google calendars — local-first and private.</p>
+
+    <div class="card">
+      <h2 style="margin-top:0">What it does</h2>
+      <ul>
+        <li>Shows your Google calendars in a compact tray popup and a full month view.</li>
+        <li>Create, edit, and delete events (with Google Meet links and recurrence).</li>
+        <li>Per-calendar show/hide, event search, reminders, and time-zone / format settings.</li>
+        <li>Works offline — events are cached locally so the calendar opens instantly.</li>
+      </ul>
+    </div>
+
+    <h2>Privacy in one line</h2>
+    <p>Everything runs on your own machine. The app talks directly to Google on your behalf; your calendar data is never sent to the developer or any third party. See the full <a href="privacy.html">Privacy Policy</a>.</p>
+
+    <footer>
+      Desktop Calendar is a personal, self-built application. Questions: <a href="mailto:l.canepa@aequitax.pro">l.canepa@aequitax.pro</a><br />
+      <a href="privacy.html">Privacy Policy</a>
+    </footer>
+  </div>
+</body>
+</html>
