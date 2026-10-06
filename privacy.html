@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Desktop Calendar — Privacy Policy</title>
-<meta name="description" content="Privacy Policy for the Desktop Calendar application." />
+<meta name="description" content="Privacy Policy for the Desktop Calendar application for Linux and Android." />
 <style>
   :root { --indigo:#6366f1; --bg:#0b0b0f; --fg:#e6e6ea; --muted:#9b9ba6; --card:#15151c; --border:#26262f; }
   * { box-sizing:border-box; }
@@ -20,6 +20,7 @@
   h2 { font-size:1.1rem; margin:34px 0 10px; letter-spacing:-0.01em; }
   ul { padding-left:1.1rem; }
   li { margin:6px 0; }
+  code { overflow-wrap:anywhere; }
   a { color:var(--indigo); text-decoration:none; }
   a:hover { text-decoration:underline; }
   .callout { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 20px; margin:20px 0; }
@@ -31,26 +32,38 @@
   <div class="wrap">
     <a class="back" href="index.html">← Desktop Calendar</a>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 26 June 2026</p>
+    <p class="updated">Last updated: 6 October 2026</p>
 
-    <p>Desktop Calendar ("the app") is a self-built desktop application for Linux that displays and manages your calendars locally on your own computer. This policy explains what data the app accesses and how it is handled.</p>
+    <p>Desktop Calendar ("the app") is a personal, self-built calendar application for Linux desktops and Android phones. It displays and manages your calendars on your own device. This policy explains what data the app accesses, what it does with it, and where it goes.</p>
 
     <h2>Who runs the app</h2>
-    <p>The app runs entirely on your own device. There is no Desktop Calendar server, backend, or hosted service. The app communicates directly with Google's APIs from your computer, using your own credentials.</p>
+    <p>The app runs entirely on your own device. There is no Desktop Calendar server, backend, or hosted service, and the developer receives none of your data. The app talks directly to Google's APIs from your device, signed in with your own Google account.</p>
 
-    <h2>Data the app accesses</h2>
+    <h2>Google user data the app accesses</h2>
     <ul>
-      <li><strong>Google Calendar data</strong> — via the <code>https://www.googleapis.com/auth/calendar</code> scope, the app reads your calendar events to display them and creates, edits, or deletes events when you ask it to.</li>
-      <li><strong>Your account email and basic profile</strong> — via the <code>openid</code> and <code>email</code> scopes, used only to label which account a calendar belongs to.</li>
+      <li><strong>Calendar events</strong> — <code>https://www.googleapis.com/auth/calendar.events</code>. The app reads the events on the calendars you choose so it can display them, offer reminders, and estimate travel times. It creates, edits, moves, or deletes an event only when you do so in the app. When you put one event on several of your calendars, it stores a random identifier in that event's private properties so it can recognise the copies as one event.</li>
+      <li><strong>Your calendar list</strong> — <code>https://www.googleapis.com/auth/calendar.calendarlist.readonly</code>. Read-only: the names and colours of the calendars in your account, so you can choose which ones to show.</li>
+      <li><strong>The app's own settings file in Google Drive</strong> — <code>https://www.googleapis.com/auth/drive.appdata</code>. One small file in the hidden app-data folder that only this app can see, so your settings follow you between your devices. It holds the calendars you chose and their colours, any iCal feed addresses you added, your home address, travel and reminder preferences, and the starting points you picked for individual events. The app cannot see any of your other Drive files.</li>
+      <li><strong>Your account email</strong> — <code>openid</code> and <code>email</code>. Used only to show which Google account is connected.</li>
+    </ul>
+
+    <h2>Other services the app uses</h2>
+    <p>Travel-time and address features use Google Maps Platform. They make requests to Google with the app's own API key; the requests go directly from your device to Google and are covered by <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google's Privacy Policy</a>.</p>
+    <ul>
+      <li><strong>Address suggestions</strong> (Places API) — the text you type into a location field.</li>
+      <li><strong>Travel times</strong> (Routes API) — only if you turn travel times on: the location of an upcoming event and where the journey starts (your home address, the previous event's location, or a place you chose).</li>
+      <li><strong>Current location</strong> (Geolocation API) — only when you choose "Current location" on the laptop: the hardware addresses and signal strengths of the Wi-Fi networks nearby, from which Google estimates where you are. Your IP address is not used to locate you. The result is used as that event's starting point.</li>
+      <li><strong>Google Maps links</strong> — when an event's location is a Google Maps short link, the app opens the link to find the place it points to.</li>
+      <li><strong>iCal feeds</strong> — calendar feeds you subscribe to are downloaded directly from the address you entered.</li>
     </ul>
 
     <h2>How your data is stored and used</h2>
     <ul>
-      <li>Calendar events are cached <strong>locally on your device</strong> so the calendar works offline and opens quickly.</li>
-      <li>Your Google OAuth tokens are stored in your operating system's secure credential store (the system keyring).</li>
-      <li>Your data is used <strong>only</strong> to provide the calendar's features to you, on your own machine.</li>
-      <li>Your data is <strong>never</strong> transmitted to the developer, sold, shared with third parties, or used for advertising. No analytics or tracking are collected.</li>
-      <li>No human ever accesses your data; there is no server that could.</li>
+      <li>Events are cached <strong>locally on your device</strong> so the calendar works offline and opens quickly.</li>
+      <li>On Linux, your Google sign-in tokens are kept in the system keyring. On Android, they are kept in the app's private storage, which no other app can read.</li>
+      <li>Your data is used <strong>only</strong> to provide the app's features to you.</li>
+      <li>Your data is <strong>never</strong> sent to the developer, sold, shared with third parties, used for advertising, or used to develop, improve, or train artificial-intelligence or machine-learning models. The app collects no analytics and does no tracking.</li>
+      <li>No person reads your data; there is no server where anyone could.</li>
     </ul>
 
     <div class="callout">
@@ -59,9 +72,10 @@
 
     <h2>Revoking access and deleting data</h2>
     <ul>
-      <li>You can disconnect a Google account inside the app (Settings → Google accounts), which removes its stored tokens from your keyring.</li>
-      <li>You can revoke the app's access at any time at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noreferrer">myaccount.google.com/permissions</a>.</li>
-      <li>Because all data lives on your device, uninstalling the app and clearing its local cache removes all stored data.</li>
+      <li>Sign out inside the app (Settings → Calendars → Sign out) to remove that account's tokens from your device.</li>
+      <li>Revoke the app's access at any time at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noreferrer">myaccount.google.com/permissions</a>.</li>
+      <li>Delete the synced settings file in Google Drive under Settings → Manage apps → Desktop Calendar → Options → Delete hidden app data.</li>
+      <li>On Android, uninstalling the app removes everything it stored on the phone. On Linux, signing out removes the tokens; the cached events and local settings are in the <code>com.lucanepa.desktopcalendar</code> folders under <code>~/.config</code> and <code>~/.local/share</code>, which you can delete.</li>
     </ul>
 
     <h2>Changes to this policy</h2>
